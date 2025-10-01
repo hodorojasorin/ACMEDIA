@@ -101,4 +101,34 @@
 //   // 2. salvează poster, titlu, descriere în baza locală
 //   // 3. map-ează genurile la genurile interne
 // }
+echo "Hello";
+
+include ("Database.php");
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="ACMEDIA.php" method="post">
+        <input type="text" name="user">
+        <input type="text" name="pass">
+        <input type="submit" value="Submit" name="submit">
+    </form>
+</body>
+</html>
+
+<?php
+if(isset($_POST['submit'])){
+    $user = $_POST['user'];
+    $pass = $_POST['pass'];
+    $sql = "INSERT INTO Users (user, pass) VALUES ('{$user}', '{$pass}')";
+    mysqli_query($connection, $sql);
+}
+
 ?>
